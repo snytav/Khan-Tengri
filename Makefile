@@ -7,7 +7,11 @@ CUDALIB=$(CUDA)/lib64
 
 LDFLAGS= -lm -L$(CUDALIB)
 #CUDAFLAGS= --maxrregcount=128  -arch=sm_35 --ptxas-options=-v -I/usr/local/cuda-7.5/include/
+ifeq ( $( CUDACC ),'nvcc' )
 CUDAFLAGS= -lineinfo --maxrregcount=128 -g -I$(CUDA)/include/
+else
+CUDAFLAGS=
+endif
 CUDALIBS=  -g -L$(CUDALIB) -lcuda -lcudart #-lthrust 
 MPIFLAGS=
 CFLAGS=
