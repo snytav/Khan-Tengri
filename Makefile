@@ -1,5 +1,5 @@
 LD=mpicxx
-CUDACC=nvcc
+CUDACC=g++
 CXX=mpicxx
 CPP=g++
 CUDA=/usr/local/cuda

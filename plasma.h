@@ -11,11 +11,13 @@
 #include <math.h>
 #include <stdlib.h>
 
+#ifdef __CUDACC__
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
 #include <thrust/generate.h>
 #include <thrust/sort.h>
 #include <thrust/copy.h>
+#endif
 //#include <cstdlib>
 #include <iostream>
 

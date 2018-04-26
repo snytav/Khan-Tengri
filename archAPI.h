@@ -31,6 +31,9 @@
 #ifdef __CUDACC__
 #define hostdevice_for_CUDA __host__ __device__
 #define global_for_CUDA __global__
+#else
+#define hostdevice_for_CUDA
+#define global_for_CUDA
 #endif
 
 //#define DETAILED_CURRENTS_WRITE
