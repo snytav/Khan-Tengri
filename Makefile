@@ -4,6 +4,7 @@ CXX=mpicxx
 CPP=g++
 CUDA=/usr/local/cuda
 CUDALIB=$(CUDA)/lib64
+MAINSRCFILE=main.cu
 
 LDFLAGS= -lm -L$(CUDALIB)
 #CUDAFLAGS= --maxrregcount=128  -arch=sm_35 --ptxas-options=-v -I/usr/local/cuda-7.5/include/
@@ -14,7 +15,7 @@ CFLAGS=
 
 OBJ = main.o rnd.o mpi_shortcut.o
             
-main.o: main.cu $(DEPS)
+main.o: $(MAINSRCFILE) $(DEPS)
 	$(CUDACC) -g -c -o $@ $< $(CUDAFLAGS) 
                     
 %.o: %.cxx $(DEPS)
