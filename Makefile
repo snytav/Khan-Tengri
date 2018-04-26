@@ -5,10 +5,10 @@ CPP=g++
 CUDA=/usr/local/cuda
 CUDALIB=$(CUDA)/lib64
 
-#ifeq ( $(CUDACC), 'nvcc' )
+ifeq ($(CUDACC),nvcc)
 MAINSRCFILE=main.cu
 CUDAFLAGS= -lineinfo --maxrregcount=128 -g -I$(CUDA)/include/
-#endif
+endif
 
 LDFLAGS= -lm -L$(CUDALIB)
 #CUDAFLAGS= --maxrregcount=128  -arch=sm_35 --ptxas-options=-v -I/usr/local/cuda-7.5/include/
