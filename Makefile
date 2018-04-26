@@ -8,6 +8,10 @@ CUDALIB=$(CUDA)/lib64
 ifeq ($(CUDACC),nvcc)
 MAINSRCFILE=main.cu
 CUDAFLAGS= -lineinfo --maxrregcount=128 -g -I$(CUDA)/include/
+else
+$(shell cp main.cu main.cxx )
+MAINSRCFILE=main.cxx
+CUDAFLAGS=
 endif
 
 LDFLAGS= -lm -L$(CUDALIB)
